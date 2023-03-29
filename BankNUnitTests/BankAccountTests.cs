@@ -9,11 +9,18 @@ namespace BankNUnitTests
 {
     internal class BankAccountTests
     {
+        private BankAccount _sut;
+        [SetUp]
+        public void Setup()
+        {
+            _sut = new BankAccount(1000);
+        }
+
         [Test]
         public void Depositing_Funds_Updates_Balance()
         {
             // ARRANGE
-            var _sut = new BankAccount(1000);
+            // var _sut = new BankAccount(1000);
             var amountToDeposit = 500;
             var expectedBalance = 1500; // 1000 + 500
 
@@ -29,7 +36,7 @@ namespace BankNUnitTests
         public void Depositing_Negative_Throws_Error()
         {
             // ARRANGE
-            var _sut = new BankAccount(1000);
+            // var _sut = new BankAccount(1000);
             var amountToDeposit = -100;
 
             // ACT + ASSERT
@@ -41,7 +48,7 @@ namespace BankNUnitTests
         public void Withdrawing_Funds_Updates_Balance()
         {
             // ARRANGE
-            var _sut = new BankAccount(1000);
+            // var _sut = new BankAccount(1000);
             var amountToWithdraw = 250;
             var expectedBalance = 750; // 1000 - 250
 
@@ -57,7 +64,7 @@ namespace BankNUnitTests
         public void Withdrawing_Negative_Throws_Error()
         {
             // ARRANGE
-            var _sut = new BankAccount(1000);
+            // var _sut = new BankAccount(1000);
             var amountToWithdraw = -100;
 
             // ACT + ASSERT
@@ -68,7 +75,7 @@ namespace BankNUnitTests
         public void Withdrawing_More_Than_Balance_Throws_Error()
         {
             // ARRANGE
-            var _sut = new BankAccount(1000);
+            // var _sut = new BankAccount(1000);
             var amountToWithdraw = 1100;
 
             // ACT + ASSERT
@@ -81,7 +88,7 @@ namespace BankNUnitTests
         public void Transfering_Funds_Updates_Both_Accounts()
         {
             // ARRANGE
-            var _sut = new BankAccount(1000);
+            // var _sut = new BankAccount(1000);
             var otherAccount = new BankAccount(250);
             var amountToTransfer = 1000;
             var expectedAccountBalance = 0; // 1000 - 1000 
@@ -101,7 +108,7 @@ namespace BankNUnitTests
         public void Transfer_To_Nonexisting_Account_Throws_Error()
         {
             // ARRANGE
-            var _sut = new BankAccount(1000);
+            // var _sut = new BankAccount(1000);
             var amountToTransfer = 500;
 
             // ACT + ASSERT
