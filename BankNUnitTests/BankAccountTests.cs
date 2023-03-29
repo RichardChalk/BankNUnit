@@ -41,9 +41,9 @@ namespace BankNUnitTests
         public void Withdrawing_Funds_Updates_Balance()
         {
             // ARRANGE
-            var _sut = new BankAccount(1500);
+            var _sut = new BankAccount(1000);
             var amountToWithdraw = 250;
-            var expectedBalance = 1250; // 1500 - 250
+            var expectedBalance = 750; // 1000 - 250
 
             // ACT
             _sut.Withdraw(amountToWithdraw);
@@ -81,10 +81,10 @@ namespace BankNUnitTests
         public void Transfering_Funds_Updates_Both_Accounts()
         {
             // ARRANGE
-            var _sut = new BankAccount(1250);
+            var _sut = new BankAccount(1000);
             var otherAccount = new BankAccount(250);
             var amountToTransfer = 1000;
-            var expectedAccountBalance = 250; // 1250 - 1000 
+            var expectedAccountBalance = 0; // 1000 - 1000 
             var expectedOtherAccountBalance = 1250; // 250 + 1000
 
             // ACT
