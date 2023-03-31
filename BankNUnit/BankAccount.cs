@@ -57,5 +57,23 @@ namespace BankNUnit
             Withdraw(amount);
             toAccount.Deposit(amount);
         }
+
+        // Using Status ENUM - Using Status ENUM - Using Status ENUM - Using Status ENUM
+        // Using Status ENUM - Using Status ENUM - Using Status ENUM - Using Status ENUM
+        // Using Status ENUM - Using Status ENUM - Using Status ENUM - Using Status ENUM
+        // Using Status ENUM - Using Status ENUM - Using Status ENUM - Using Status ENUM
+        public ReturnStatus DepositEnum(double amount)
+        {
+            var status = new ReturnStatus();
+            if (amount < 0)
+            {
+                return status = ReturnStatus.DepositLessThanZero;
+            }
+
+            _balance += amount;
+            status = ReturnStatus.Success;
+            return status;
+        }
+
     }
 }

@@ -114,5 +114,45 @@ namespace BankNUnitTests
             // ACT + ASSERT
             Assert.Throws<ArgumentNullException>(() => _sut.Transfer(null, amountToTransfer));
         }
+
+        // Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM
+        // Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM
+        // Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM
+        // Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM
+        
+        [Test]
+        public void Depositing_Funds_Updates_Balance_Enum()
+        {
+            // ARRANGE
+            // var _sut = new BankAccount(1000);
+            var amountToDeposit = 500;
+            var expectedBalance = 1500; // 1000 + 500
+
+            // ACT
+            var returnEnum = _sut.DepositEnum(amountToDeposit);
+            var result = _sut.Balance;
+
+            // ASSERT
+            Assert.AreEqual(expectedBalance, result);
+            Assert.That(returnEnum, Is.EqualTo(ReturnStatus.Success));
+        }
+
+        [Test]
+        public void Depositing_Negative_Throws_Enum_Error()
+        {
+            // ARRANGE
+            // var _sut = new BankAccount(1000);
+            var amountToDeposit = -500; // Not allowed!
+            var expectedBalance = 1000; // Balance ska inte ändras
+
+            // ACT
+            var returnEnum = _sut.DepositEnum(amountToDeposit);
+            var result = _sut.Balance;
+
+            // ASSERT
+            Assert.AreEqual(expectedBalance, result);
+            Assert.That(returnEnum, Is.EqualTo(ReturnStatus.DepositLessThanZero));
+        }
+
     }
 }
