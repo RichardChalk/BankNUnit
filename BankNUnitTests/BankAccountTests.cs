@@ -1,9 +1,4 @@
 ﻿using BankNUnit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankNUnitTests
 {
@@ -29,7 +24,8 @@ namespace BankNUnitTests
             var result = _sut.Balance;
 
             // ASSERT
-            Assert.AreEqual(expectedBalance, result);
+            // Assert.AreEqual(expectedBalance, result); // Fungerar endast med NUnit 3.x och äldre!
+            Assert.That(result, Is.EqualTo(expectedBalance)); // Updated to use Assert.That  
         }
 
         [Test]
@@ -57,7 +53,8 @@ namespace BankNUnitTests
             var result = _sut.Balance;
 
             // ASSERT
-            Assert.AreEqual(expectedBalance, result);
+            // Assert.AreEqual(expectedBalance, result);  // Fungerar endast med NUnit 3.x och äldre!
+            Assert.That(result, Is.EqualTo(expectedBalance)); // Updated to use Assert.That  
         }
 
         [Test]
@@ -100,8 +97,11 @@ namespace BankNUnitTests
             var resultOtherAccount = otherAccount.Balance;
 
             // ASSERT
-            Assert.AreEqual(expectedAccountBalance, resultAccount);
-            Assert.AreEqual(expectedOtherAccountBalance, resultOtherAccount);
+            // Assert.AreEqual(expectedAccountBalance, resultAccount); // Fungerar endast med NUnit 3.x och äldre!
+            Assert.That(resultAccount, Is.EqualTo(expectedAccountBalance)); // Updated to use Assert.That  
+
+            // Assert.AreEqual(expectedOtherAccountBalance, resultOtherAccount); // Fungerar endast med NUnit 3.x och äldre!
+            Assert.That(resultOtherAccount, Is.EqualTo(expectedOtherAccountBalance)); // Updated to use Assert.That  
         }
 
         [Test]
@@ -119,7 +119,7 @@ namespace BankNUnitTests
         // Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM
         // Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM
         // Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM - Testing ENUM
-        
+
         [Test]
         public void Depositing_Funds_Updates_Balance_Enum()
         {
@@ -133,7 +133,8 @@ namespace BankNUnitTests
             var result = _sut.Balance;
 
             // ASSERT
-            Assert.AreEqual(expectedBalance, result);
+            // Assert.AreEqual(expectedBalance, result); // Fungerar endast med NUnit 3.x och äldre!
+            Assert.That(result, Is.EqualTo(expectedBalance)); // Updated to use Assert.That  
             Assert.That(returnEnum, Is.EqualTo(ReturnStatus.Success));
         }
 
@@ -150,7 +151,8 @@ namespace BankNUnitTests
             var result = _sut.Balance;
 
             // ASSERT
-            Assert.AreEqual(expectedBalance, result);
+            // Assert.AreEqual(expectedBalance, result); // Fungerar endast med NUnit 3.x och äldre!
+            Assert.That(result, Is.EqualTo(expectedBalance)); // Updated to use Assert.That  
             Assert.That(returnEnum, Is.EqualTo(ReturnStatus.DepositLessThanZero));
         }
 
